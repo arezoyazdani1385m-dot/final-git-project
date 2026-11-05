@@ -1,6 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Library</title>
+</head>
+<body>
 
-<h1>my library</h1>
-<p>Welcome to my library</p>
+    <h1>My Library</h1>
+    <p>Welcome to my library</p>
 
-<p>About our library</p>
-<p>Contact our library</p>
+    <h2>Search Books</h2>
+
+    <input type="text" id="search" placeholder="Search by title">
+
+    <ul id="books">
+        <li>Python Basics</li>
+        <li>Learning Git</li>
+        <li>Web Development</li>
+    </ul>
+
+    <script>
+        let search = document.getElementById("search");
+        let books = document.querySelectorAll("#books li");
+
+        search.addEventListener("input", function() {
+            let value = search.value.toLowerCase();
+
+            books.forEach(function(book) {
+                let title = book.textContent.toLowerCase();
+
+                if (title.includes(value)) {
+                    book.style.display = "list-item";
+                } else {
+                    book.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
